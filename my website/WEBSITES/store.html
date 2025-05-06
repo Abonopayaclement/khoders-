@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+
+    <h2>Guess the Number!</h2>
+    <p>Enter a number between 1 and 100:</p>
+    <input type="number" id="guessInput" min="1" max="100">
+    <button id="guessButton">Submit Guess</button>
+    <p id="message"></p>  <!-- Message should be here -->
+
+    <script>
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        document.getElementById("guessButton").addEventListener("click", checkGuess);
+
+        function checkGuess() {
+            console.log("Function called"); // Debugging
+
+            let userGuess = parseInt(document.getElementById("guessInput").value);
+            let message = document.getElementById("message"); // Get the element
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.innerHTML = "⚠️ Please enter a number between 1 and 100.";
+                message.style.color = "orange";
+                return;
+            }
+
+            if (userGuess === secretNumber) {
+                message.innerHTML = `🎉 Congratulations! You guessed it in ${attempts} tries!`;
+                message.style.color = "green";
+            } else if (userGuess > secretNumber) {
+                message.innerHTML = "⬇️ Too high! Try again.";
+                message.style.color = "red";
+            } else {
+                message.innerHTML = "⬆️ Too low! Try again.";
+                message.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 p-4 text-white text-center">
+        <h1 class="text-2xl">Number Guessing Game</h1>
+    </nav>
+    <div class="container mx-auto mt-10 p-5 bg-white shadow-md rounded-md max-w-md text-center">
+        <h2 class="text-lg font-bold">Guess a number between 1 and 100</h2>
+        <input type="number" id="userGuess" class="border p-2 mt-2 w-full text-center" placeholder="Enter your guess">
+        <button onclick="checkGuess()" class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+        <p id="message" class="mt-3 text-lg font-semibold"></p>
+    </div>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        function checkGuess() {
+            let userGuess = document.getElementById("userGuess").value;
+            let message = document.getElementById("message");
+            userGuess = parseInt(userGuess);
+            attempts++;
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "Please enter a valid number between 1 and 100.";
+                message.style.color = "red";
+                return;
+            }
+            
+            if (userGuess === randomNumber) {
+                message.textContent = `Congratulations! You guessed it right in ${attempts} attempts.`;
+                message.style.color = "green";
+            } else if (userGuess > randomNumber) {
+                message.textContent = "Too high! Try again.";
+                message.style.color = "orange";
+            } else {
+                message.textContent = "Too low! Try again.";
+                message.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 p-4 text-white text-center">
+        <h1 class="text-2xl">Number Guessing Game</h1>
+    </nav>
+    <div class="container mx-auto mt-10 p-5 bg-white shadow-md rounded-md max-w-md text-center">
+        <h2 class="text-lg font-bold">Guess a number between 1 and 100</h2>
+        <input type="number" id="userGuess" class="border p-2 mt-2 w-full text-center" placeholder="Enter your guess">
+        <button onclick="checkGuess()" class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+        <p id="message" class="mt-3 text-lg font-semibold"></p>
+    </div>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        
+        function checkGuess() {
+            let userGuess = document.getElementById("userGuess").value;
+            let message = document.getElementById("message");
+            userGuess = parseInt(userGuess);
+            attempts++;
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                message.textContent = "Please enter a valid number between 1 and 100.";
+                message.style.color = "red";
+                return;
+            }
+            
+            if (userGuess === randomNumber) {
+                message.textContent = `Congratulations! You guessed it right in ${attempts} attempts.`;
+                message.style.color = "green";
+            } else if (userGuess > randomNumber) {
+                message.textContent = "Too high! Try again.";
+                message.style.color = "orange";
+            } else {
+                message.textContent = "Too low! Try again.";
+                message.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- drawer init and toggle -->
+<div class="text-center">
+   <button class="overflow-y-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-top-example" data-drawer-show="drawer-top-example" data-drawer-placement="top" aria-controls="drawer-top-example">
+   Show top drawer
+   </button>
+</div>
+
+<!-- drawer component -->
+<div id="drawer-top-example" class="fixed top-0 left-0 right-0 z-40 w-full p-4 transition-transform -translate-y-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-top-label">
+    <h5 id="drawer-top-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+  </svg>Top drawer</h5>
+    <button type="button" data-drawer-hide="drawer-top-example" aria-controls="drawer-top-example" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
+      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+      </svg>
+      <span class="sr-only">Close menu</span>
+   </button>
+    <p class="max-w-lg mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking advantage of our <a href="#" class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline">limited-time sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.</p>
+   <a href="#" class="px-4 py-2 me-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn more</a>
+   <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get access <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+  </svg></a>
+</div>
+
+
+<p>
+    I enjoy learning new technologies and applying them to real-world problems.
+     In my free time, I like to work on personal projects, read tech blogs, 
+     and participate in coding challenges.</p>
+    </p>
+    <p>
+    I am also interested in web development, mobile app development, and artificial intelligence. I believe in continuous learning and strive to improve my skills every day.</p>
+    </p>
+
+    , including troubleshooting and assembling computer systems. I have hands-on experience in diagnosing hardware issues, replacing faulty components, and upgrading systems to meet modern requirements. Additionally, I have knowledge in networking, including setting up and configuring routers, switches, and LAN/WAN networks. I am skilled in software installation, system optimization, and ensuring efficient performance by implementing best practices for both hardware and software management.
+  </p>
+
+  <div>
+    <p class="writing">I went to nursery-school at the age of  4
+    and completed it at the age of 7. I then proceeded to primary school at the age of 7 and completed it at the age of 13.
+     I then went to junior high school at the age of 13 and completed it at the age of 16.
+      I then went to Secondary school at the age of 16 and completed it at the age of 19. 
+    I am currently in university at my 20 in my level 100.</p>
+    </p>
